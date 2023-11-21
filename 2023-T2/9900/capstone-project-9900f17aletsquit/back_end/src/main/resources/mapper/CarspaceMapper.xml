@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.unsw.back_end.mapper.CarspaceMapper">
+  <resultMap id="BaseResultMap" type="com.unsw.back_end.pojo.Carspace">
+    <id column="car_space_id" jdbcType="INTEGER" property="carSpaceId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="price" jdbcType="FLOAT" property="price" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="size" jdbcType="VARCHAR" property="size" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="carspaceimage" jdbcType="VARCHAR" property="carspaceimage" />
+    <result column="totalrank" jdbcType="FLOAT" property="totalrank" />
+    <result column="ranknum" jdbcType="INTEGER" property="ranknum" />
+
+  </resultMap>
+  <sql id="Base_Column_List">
+    car_space_id, user_id, price, address, `size`, `type`, carspaceimage, totalrank, ranknum
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from carspace
+    where car_space_id = #{carSpaceId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByAddress" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from carspace
+    where address = #{address,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from carspace
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAllSpace" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from carspace
+  </select>
+  <select id="selectByAddressAndPriceAsc" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from carspace
+    where address like CONCAT('%', #{city, jdbcType=VARCHAR}, '%') and address like CONCAT('%', #{suburb, jdbcType=VARCHAR}, '%') and address like CONCAT('%', #{street, jdbcType=VARCHAR}, '%')
+    order by price
+  </select>
+  <select id="selectByAddressAndPriceDes" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from carspace
+    where address like CONCAT('%', #{city, jdbcType=VARCHAR}, '%') and address like CONCAT('%', #{suburb, jdbcType=VARCHAR}, '%') and address like CONCAT('%', #{street, jdbcType=VARCHAR}, '%')
+    order by price desc
+  </select>
+  <select id="selectByAddressAndRankAsc" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from carspace
+    where address like CONCAT('%', #{city, jdbcType=VARCHAR}, '%') and address like CONCAT('%', #{suburb, jdbcType=VARCHAR}, '%') and address like CONCAT('%', #{street, jdbcType=VARCHAR}, '%')
+    order by totalrank
+  </select>
+  <select id="selectByAddressAndRankDes" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from carspace
+    where address like CONCAT('%', #{city, jdbcType=VARCHAR}, '%') and address like CONCAT('%', #{suburb, jdbcType=VARCHAR}, '%') and address like CONCAT('%', #{street, jdbcType=VARCHAR}, '%')
+    order by totalrank desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from carspace
+    where car_space_id = #{carSpaceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="car_space_id" keyProperty="carSpaceId" parameterType="com.unsw.back_end.pojo.Carspace" useGeneratedKeys="true">
+    insert into carspace (user_id, price, address, 
+      `size`, `type`, carspaceimage,totalrank,ranknum)
+    values (#{userId,jdbcType=INTEGER}, #{price,jdbcType=FLOAT}, #{address,jdbcType=VARCHAR},
+      #{size,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{carspaceimage,jdbcType=VARCHAR},
+    #{totalrank,jdbcType=FLOAT}, #{ranknum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="car_space_id" keyProperty="carSpaceId" parameterType="com.unsw.back_end.pojo.Carspace" useGeneratedKeys="true">
+    insert into carspace
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="size != null">
+        `size`,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="carspaceimage != null">
+        carspaceimage,
+      </if>
+      <if test="totalrank != null">
+        totalrank,
+      </if>
+      <if test="ranknum != null">
+        ranknum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=FLOAT},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="carspaceimage != null">
+      #{carspaceimage,jdbcType=VARCHAR},
+      </if>
+      <if test="totalrank != null">
+        #{totalrank,jdbcType=FLOAT},
+      </if>
+      <if test="ranknum != null">
+        #{ranknum,jdbcType=INTEGER},
+      </if>
+
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.unsw.back_end.pojo.Carspace">
+    update carspace
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=FLOAT},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        `size` = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="carspaceimage != null">
+        carspaceimage = #{carspaceimage,jdbcType=VARCHAR},
+      </if>
+      <if test="totalrank != null">
+        totalrank = #{totalrank,jdbcType=FLOAT},
+      </if>
+      <if test="ranknum != null">
+        ranknum = #{ranknum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where car_space_id = #{carSpaceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.unsw.back_end.pojo.Carspace">
+    update carspace
+    set user_id = #{userId,jdbcType=INTEGER},
+      price = #{price,jdbcType=FLOAT},
+      address = #{address,jdbcType=VARCHAR},
+      `size` = #{size,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      carspaceimage = #{carspaceimage,jdbcType=VARCHAR},
+      totalrank = #{totalrank,jdbcType=FLOAT},
+      ranknum = #{ranknum,jdbcType=INTEGER}
+    where car_space_id = #{carSpaceId,jdbcType=INTEGER}
+  </update>
+</mapper>

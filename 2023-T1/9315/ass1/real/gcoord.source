@@ -1,0 +1,120 @@
+CREATE FUNCTION geocoord_in(cstring)
+   RETURNS GeoCoord
+   AS '_OBJWD_/gcoord'
+   LANGUAGE C IMMUTABLE STRICT;
+
+CREATE FUNCTION geocoord_out(GeoCoord)
+   RETURNS cstring
+   AS '_OBJWD_/gcoord'
+   LANGUAGE C IMMUTABLE STRICT;
+
+CREATE TYPE GeoCoord (
+   internallength = VARIABLE,
+   input = geocoord_in,
+   output = geocoord_out,
+   alignment = int
+);
+
+
+
+CREATE FUNCTION compare_equal(GeoCoord, GeoCoord) RETURNS bool
+   AS '_OBJWD_/gcoord' LANGUAGE C IMMUTABLE STRICT;
+
+CREATE FUNCTION compare_not_equal(GeoCoord, GeoCoord) RETURNS bool
+   AS '_OBJWD_/gcoord' LANGUAGE C IMMUTABLE STRICT;
+
+CREATE FUNCTION compare_more(GeoCoord, GeoCoord) RETURNS bool
+   AS '_OBJWD_/gcoord' LANGUAGE C IMMUTABLE STRICT;
+
+CREATE FUNCTION compare_less(GeoCoord, GeoCoord) RETURNS bool
+   AS '_OBJWD_/gcoord' LANGUAGE C IMMUTABLE STRICT;
+
+CREATE FUNCTION compare_more_or_equal(GeoCoord, GeoCoord) RETURNS bool
+   AS '_OBJWD_/gcoord' LANGUAGE C IMMUTABLE STRICT;
+
+CREATE FUNCTION compare_less_or_equal(GeoCoord, GeoCoord) RETURNS bool
+   AS '_OBJWD_/gcoord' LANGUAGE C IMMUTABLE STRICT;
+
+CREATE FUNCTION same_time_zone(GeoCoord, GeoCoord) RETURNS bool
+   AS '_OBJWD_/gcoord' LANGUAGE C IMMUTABLE STRICT;
+
+CREATE FUNCTION not_same_time_zone(GeoCoord, GeoCoord) RETURNS bool
+   AS '_OBJWD_/gcoord' LANGUAGE C IMMUTABLE STRICT;
+   
+
+CREATE OPERATOR < (
+   leftarg = GeoCoord, rightarg = GeoCoord, procedure = compare_less,
+   commutator = > , negator = >= ,
+   restrict = scalarltsel, join = scalarltjoinsel
+);
+CREATE OPERATOR <= (
+   leftarg = GeoCoord, rightarg = GeoCoord, procedure = compare_less_or_equal,
+   commutator = >= , negator = > ,
+   restrict = scalarlesel, join = scalarlejoinsel
+);
+CREATE OPERATOR = (
+   leftarg = GeoCoord, rightarg = GeoCoord, procedure = compare_equal,
+   commutator = = ,
+   -- leave out negator since we didn't create <> operator
+   -- negator = <> ,
+   restrict = eqsel, join = eqjoinsel
+);
+CREATE OPERATOR >= (
+   leftarg = GeoCoord, rightarg = GeoCoord, procedure = compare_more_or_equal,
+   commutator = <= , negator = < ,
+   restrict = scalargesel, join = scalargejoinsel
+);
+CREATE OPERATOR > (
+   leftarg = GeoCoord, rightarg = GeoCoord, procedure = compare_more,
+   commutator = < , negator = <= ,
+   restrict = scalargtsel, join = scalargtjoinsel
+);
+
+CREATE OPERATOR <> (
+   leftarg = GeoCoord, rightarg = GeoCoord, procedure = compare_not_equal,
+   commutator = <> ,
+   -- leave out negator since we didn't create <> operator
+   -- negator = = ,
+   restrict = eqsel, join = eqjoinsel
+);
+
+CREATE OPERATOR ~ (
+   leftarg = GeoCoord, rightarg = GeoCoord, procedure = same_time_zone,
+   commutator = ~ ,
+   negator = !~ ,
+   restrict = eqsel, join = eqjoinsel
+);
+
+CREATE OPERATOR !~ (
+   leftarg = GeoCoord, rightarg = GeoCoord, procedure = not_same_time_zone,
+   commutator = !~ ,
+   negator = ~ ,
+   restrict = eqsel, join = eqjoinsel
+);
+
+
+CREATE FUNCTION compare(GeoCoord, GeoCoord) RETURNS int4
+   AS '_OBJWD_/gcoord' LANGUAGE C IMMUTABLE STRICT;
+
+
+CREATE FUNCTION convert2dms(GeoCoord) RETURNS text
+   AS '_OBJWD_/gcoord' LANGUAGE C IMMUTABLE STRICT;
+
+
+CREATE OPERATOR CLASS gcoord_abs_ops
+    DEFAULT FOR TYPE GeoCoord USING btree AS
+        OPERATOR        1       < ,
+        OPERATOR        2       <= ,
+        OPERATOR        3       = ,
+        OPERATOR        4       >= ,
+        OPERATOR        5       > ,
+        FUNCTION        1       compare(GeoCoord, GeoCoord);
+
+
+CREATE FUNCTION hash_gcoord(GeoCoord) RETURNS int4
+   AS '_OBJWD_/gcoord' LANGUAGE C IMMUTABLE STRICT;
+
+CREATE OPERATOR CLASS gcoord_hash_ops
+   DEFAULT FOR TYPE GeoCoord USING hash AS
+      OPERATOR         1       = ,
+      FUNCTION         1       hash_gcoord(GeoCoord);

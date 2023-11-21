@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LurkForWork</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- You can add your styles and scripts here -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/global.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Modals -->
+    <div class="modal modal-lg fade" id="job-post-modal" tabindex="-1" aria-hidden="true" aria-labelledby="job-post-modal-header">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="job-post-modal-header">Create job post</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Title<span class="text-red">*</span></span>
+                            <input type="text" id="job-post-title" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Date available<span class="text-red">*</span></span>
+                            <input type="date" id="job-post-date" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                        </div>
+                        <div class="input-group mb-3 form-floating">
+                            <textarea class="form-control" placeholder="Enter the job description here" id="job-post-description" style="height: 100px;"></textarea>
+                            <label for="job-post-description">Job description</label>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Upload an image&nbsp;<span class="fst-italic">(optional)</span></span>
+                            <input type="file" id="job-post-file" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="submit-job-post-btn" class="btn btn-primary" data-mode="create" data-id="">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal modal-lg fade" id="update-user-info-modal" tabindex="-1" aria-hidden="true" aria-labelledby="user-info-modal-header">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="user-info-modal-header">Update details</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+                            <input type="email" id="user-info-email" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">New password</span>
+                            <input type="password" id="user-info-password" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                            <i class="bi bi-eye-slash toggle-password"></i>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Confirm new password</span>
+                            <input type="password" id="user-info-confirm-password" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                            <i class="bi bi-eye-slash toggle-password"></i>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+                            <input type="text" id="user-info-name" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Profile picture</span>
+                            <input type="file" id="user-info-picture" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="update-user-info-btn" class="btn btn-primary" data-id="">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="job-likes-modal" tabindex="-1" aria-hidden="true" aria-labelledby="job-likes-modal-header">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="job-likes-modal-header">Likes for: <span class="fw-bolder" id="job-likes-modal-header-title"></span></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="job-likes-list">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="confirm-delete-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this job post?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
+                    <a id="confirm-delete-btn" class="btn btn-danger" data-id="" data-user_id="">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End modals -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+            <a id="navbar-title" href="#" class="navbar-brand">
+                <h1>LurkForWork</h1>
+            </a>
+            <div class="collapse navbar-collapse">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="#feed" data-destination="feed">Job feed</a>
+                    <a id="nav-login" class="nav-item nav-link" href="#login" data-destination="login">Login/Register</a>
+                    <button type="button" id="logout-btn" class="btn btn-secondary hidden">Logout</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main">
+        <div id="login-register-page" class="page hidden">
+            <h2 id="login-register-header" class="mb-5">Welcome!</h2>
+            <div class="col-sm-12 col-md-8 col-lg-4 d-inline-block">
+                <ul class="nav nav-pills nav-justified mb-5" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active show-login" id="show-login-btn" role="tab"aria-controls="login-tab" aria-selected="true">Login</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link show-register" id="show-register-btn" role="tab"aria-controls="login-tab" aria-selected="false">Register</button>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="login-tab" role="tabpanel" aria-labelledby="login-tab">
+                        <form>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Email<span class="text-red">*</span></span>
+                                <input type="email" id="login-email" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Password<span class="text-red">*</span></span>
+                                <input type="password" id="login-password" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                                <i class="bi bi-eye-slash toggle-password"></i>
+                            </div>
+                            <button id="login-button" type="submit" class="btn btn-secondary btn-block mb-4" style="width: -webkit-fill-available">Sign in</button>
+                            <div class="text-center">
+                                <p>Don't have an account? <a class="show-register" href="">Register</a></p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="register-tab" role="tabpanel" aria-labelledby="register-tab">
+                        <form>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Name<span class="text-red">*</span></span>
+                                <input type="text" id="register-name" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Email<span class="text-red">*</span></span>
+                                <input type="email" id="register-email" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Password<span class="text-red">*</span></span>
+                                <input type="password" id="register-password" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                                <i class="bi bi-eye-slash toggle-password"></i>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Confirm password<span class="text-red">*</span></span>
+                                <input type="password" id="register-confirm-password" class="form-control" aria-describedby="inputGroup-sizing-default"/>
+                                <i class="bi bi-eye-slash toggle-password"></i>
+                            </div>
+                            <button id="register-button" type="submit" class="btn btn-secondary btn-block mb-4" style="width: -webkit-fill-available">Register</button>
+                            <div class="text-center">
+                                <p>Already have an account? <a class="show-login" href="">Log in</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="feed-page" class="page hidden">
+            <div class="col-sm-12 mx-5">
+                <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#job-post-modal">
+                    Create job post
+                </button>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <span id="job-feed-empty">
+                            No job posts found.
+                        </span>
+                        <div id="feed-list">
+                        </div>
+                    </div>
+                    <div id="user-profile-col" class="col-sm-4 justify-content-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="profile-page" class="page hidden">
+            <!-- Profile page content -->
+        </div>
+    </main>
+    <footer class="mt-5">
+        <p>&copy; lurkforwork.com 2022</p>
+    </footer>
+    <script type="module" src="src/main.js"></script>
+    </body>
+</html>

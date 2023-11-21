@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.unsw.back_end.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.unsw.back_end.pojo.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="u_password" jdbcType="VARCHAR" property="uPassword" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="wallet_extra" jdbcType="FLOAT" property="walletExtra" />
+    <result column="vip_deadline" jdbcType="DATE" property="vipDeadline" />
+    <result column="cur_status" jdbcType="BOOLEAN" property="curStatus" />
+    <result column="userimage" jdbcType="VARCHAR" property="userimage" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, u_password, email, username, wallet_extra, vip_deadline, cur_status, userimage,birthday
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where email = #{email,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.unsw.back_end.pojo.User" useGeneratedKeys="true">
+    insert into user (u_password, email, username, 
+      wallet_extra, vip_deadline, cur_status, 
+      userimage,birthday)
+    values (#{uPassword,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{walletExtra,jdbcType=FLOAT}, #{vipDeadline,jdbcType=DATE}, #{curStatus,jdbcType=BOOLEAN}, 
+      #{userimage,jdbcType=VARCHAR},#{birthday,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.unsw.back_end.pojo.User" useGeneratedKeys="true">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uPassword != null">
+        u_password,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="walletExtra != null">
+        wallet_extra,
+      </if>
+      <if test="vipDeadline != null">
+        vip_deadline,
+      </if>
+      <if test="curStatus != null">
+        cur_status,
+      </if>
+      <if test="userimage != null">
+        userimage,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uPassword != null">
+        #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="walletExtra != null">
+        #{walletExtra,jdbcType=FLOAT},
+      </if>
+      <if test="vipDeadline != null">
+        #{vipDeadline,jdbcType=DATE},
+      </if>
+      <if test="curStatus != null">
+        #{curStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="userimage != null">
+        #{userimage,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.unsw.back_end.pojo.User">
+    update user
+    <set>
+      <if test="uPassword != null">
+        u_password = #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="walletExtra != null">
+        wallet_extra = #{walletExtra,jdbcType=FLOAT},
+      </if>
+      <if test="vipDeadline != null">
+        vip_deadline = #{vipDeadline,jdbcType=DATE},
+      </if>
+      <if test="curStatus != null">
+        cur_status = #{curStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="userimage != null">
+        userimage = #{userimage,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.unsw.back_end.pojo.User">
+    update user
+    set u_password = #{uPassword,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      wallet_extra = #{walletExtra,jdbcType=FLOAT},
+      vip_deadline = #{vipDeadline,jdbcType=DATE},
+      cur_status = #{curStatus,jdbcType=BOOLEAN},
+      userimage = #{userimage,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+        </mapper>

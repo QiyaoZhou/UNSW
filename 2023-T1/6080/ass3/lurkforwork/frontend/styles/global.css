@@ -1,0 +1,53 @@
+/* base styles, feel free to edit */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial;
+}
+.btn-xs {
+    padding: .25rem .4rem !important;
+    font-size: .875rem !important;
+    line-height: .5 !important;
+    border-radius: .2rem !important;
+}
+.comment-name, .job-likes {
+    text-decoration: none;
+}
+.like-job-btn {
+    cursor: pointer;
+}
+#login-register-page {
+    text-align: center;
+}
+main h2 {
+    text-align: center;
+}
+.navbar a {
+    cursor: pointer;
+}
+.navbar-brand {
+    margin-left: 10px;
+}
+.toggle-password {
+    z-index: 100;
+    margin-top: 4px;
+    margin-left: -30px !important;
+    cursor: pointer;
+}
+.hidden {
+    display: none !important;
+}
+.text-red {
+    color: red;
+}
+img {
+    object-fit: contain;
+    width: 150px;
+    height: 150px;
+    border: 1px solid grey;
+}
+.user-profile-card {
+    position: sticky;
+    top: 0;
+}

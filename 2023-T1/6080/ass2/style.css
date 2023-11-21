@@ -1,0 +1,82 @@
+body {
+    font-size: 25pt;
+    width: 762px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    gap: 10px;
+    padding: 5px;
+    border: 3px solid black;
+}
+
+.hint-textbox{
+    position: relative;
+    border: 1px solid black;
+}
+
+.input-textbox{
+    position: relative; 
+    margin-right: 20px;
+    border: 1px solid black;
+}
+
+.hint-text{
+    padding: 5px;
+    border: 1px solid black;
+    margin:1px 1px 1px 1px;
+}
+
+.input-text1 {
+    position: absolute;
+    top: 1px;            
+    bottom: 1px;            
+    left: 1px;            
+    right: 1px;           
+    padding: 5px;
+    border: 1px solid black;
+    margin:auto;
+}
+
+.input-text2 {
+    height: 80%;
+    width: 50%;
+    padding: 5px;
+    border: 1px solid black;
+    margin-left: 2px;
+    font-weight: bold;
+    font-size: 22pt;
+}
+
+.feature-hint {
+    line-height: 180px;
+    position: absolute;
+    top: 1px;            
+    bottom: 1px;            
+    left: 1px;            
+    right: 1px;           
+    padding: 5px;
+    border: 1px solid black;
+    margin:auto;
+}
+
+.features {
+    font-size: 25pt;
+    display: gird;
+    grid-template-columns: 35% 65%;
+}
+
+input {
+    font-size: 20pt;
+}
+
+.summary {
+    border: 2px solid black;
+    width: 760px;
+    height: 300px;
+}
+
+textarea {
+    font-size: 22pt;
+}

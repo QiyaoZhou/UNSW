@@ -1,0 +1,34 @@
+Week 1
+
+We set up the group and discussed briefly the project topic.
+
+Week 2
+
+We had a meeting about the project start-up and the technologies we want to apply for the project. Start to learn the Java framework like SSM and SpringBoot. 
+
+Week 3
+
+We had several meetings to sort out the detail in the proposal and finished the proposal.
+Discussed the relevant structure of the database with my companions, and decided the main content of the table in mysql.
+
+Week 4
+This week, we realized the construction and basic testing of the back-end springboot framework. In addition, we also realized the writing and testing of some functions, including: user registration, login and logout functions, administrator login and logout functions, sending and writing user information functions. Based on some functions, we have implemented the redis cache, so that all CRUD operations will not be queried from the database but extracted from the redis cache, which reduces the consumption of resources.
+
+Week 5
+adding, modifying, deleting and querying parking spaces
+
+Week 6
+Add some special queries, such as querying all parking spaces, querying parking spaces owned by parking space providers, querying unique parking spaces by parking space ID, and querying parking spaces by address.
+
+Week 7
+A new table, comment, is added to the database to store the comments of each parking space after consumers use it. Based on this table, all comments of the parking space can be queried according to the parking space number, which is convenient for future consumers to evaluate the parking space.
+
+Week 8
+Some basic functions about the order table are realized: adding orders and modifying orders.
+
+Week 9
+Some basic functions about the order table are realized: deleting orders and querying orders.
+According to the requirements of the front end, the back end has added a new function for returning consumers to inquire about the available date of the parking space that will be placed soon, and the back end will return all the reserved parking spaces of the parking space for consumers to choose.
+
+Week 10
+Writing a report and preparing for the final presentation.

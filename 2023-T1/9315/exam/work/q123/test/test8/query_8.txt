@@ -1,0 +1,6 @@
+# comments
+
+
+# format:
+# operator nattrs ntuples page_size nslots
+cal_sort_time 4 50 60 4

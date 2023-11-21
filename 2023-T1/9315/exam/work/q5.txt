@@ -1,0 +1,15 @@
+# COMP9315 23T1 Final Exam Q5
+  
+Type your answer(s) to replace the xxx's
+Submit this file as your answer for Q5
+
+1. 
+
+number of index entries per page: floor((512-32)/(4+4)) = 60
+
+
+2.
+
+number of data page: ceil(160000/floor((512-32)/8)) = 2667
+result: ceil((2667+160000)/60) = 2712
+

@@ -1,0 +1,6 @@
+# comments
+
+
+# format:
+# proj table_attribute_index table_name
+proj 1 t1_name

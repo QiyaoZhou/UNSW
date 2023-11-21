@@ -1,0 +1,154 @@
+{
+  "admins": {
+    "hayden.smith@unsw.edu.au": {
+      "name": "Hayden",
+      "password": "bananapie",
+      "sessionActive": true
+    }
+  },
+  "quizzes": {
+    "520016196": {
+      "name": "QUIZDIFF",
+      "owner": "hayden.smith@unsw.edu.au",
+      "questions": [
+        {},
+        {},
+        {}
+      ],
+      "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
+      "active": null,
+      "createdAt": "2023-04-19T01:36:42.319Z"
+    }
+  },
+  "sessions": {
+    "514701": {
+      "quizId": "520016196",
+      "position": 3,
+      "isoTimeLastQuestionStarted": "2023-04-19T01:36:43.060Z",
+      "players": {
+        "115435627": {
+          "name": "HAYDEN5",
+          "answers": [
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            },
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            },
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            }
+          ]
+        },
+        "222419261": {
+          "name": "HAYDEN4",
+          "answers": [
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            },
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            },
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            }
+          ]
+        },
+        "240782777": {
+          "name": "HAYDEN1",
+          "answers": [
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            },
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            },
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            }
+          ]
+        },
+        "352525804": {
+          "name": "HAYDEN2",
+          "answers": [
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            },
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            },
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            }
+          ]
+        },
+        "424125346": {
+          "name": "HAYDEN3",
+          "answers": [
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            },
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            },
+            {
+              "questionStartedAt": null,
+              "answeredAt": null,
+              "answerIds": [],
+              "correct": false
+            }
+          ]
+        }
+      },
+      "questions": [
+        {},
+        {},
+        {}
+      ],
+      "active": false,
+      "answerAvailable": false
+    }
+  }
+}

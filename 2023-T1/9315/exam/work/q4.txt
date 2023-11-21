@@ -1,0 +1,29 @@
+# COMP9315 23T1 Final Exam Q4
+
+Type your answer(s) to replace the xxx's
+Submit this file as your answer for Q4
+
+
+Q4.1
+
+tuples per page: 4096/256=16
+data page num: ceil(100000/16)=6250
+For query1:
+read page time: 6250*0.01=62.5sec
+wite page time: 6250*0.6*0.02=75sec
+on tuples:100000*10^-6 + 100000*0.6*2*10^-6=0.22sec
+total time cost:62.5+75+0.22=137.72sec
+For query2:
+(99-62)/(99-11)=0.42
+read page time: 6250*0.01=62.5sec
+wite page time: 6250*0.42*0.02=52.5sec
+on tuples:100000*10^-6 + 100000*0.42*2*10^-6=0.184sec
+total time cost:62.5+52.5+0.184=137.72sec
+
+
+
+Q4.2
+student id is a 7 bits integer, so it can be set as a int type with 4 bytes.
+birthday date is a 10 bits string. so it can be set as a varchar(10) with 10 bytes.
+record1: 4+1+11+25+10 = 51 bytes
+record2: 4+1+9+28+10 = 52 bytes

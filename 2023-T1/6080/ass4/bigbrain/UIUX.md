@@ -1,0 +1,3 @@
+- Used Figma to design a basic outlook of how certain aspects of the app should look
+- Referred to the Figma design when designing the application
+- (Screenshot provided of Figma design in Figma.png)

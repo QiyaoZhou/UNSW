@@ -1,0 +1,39 @@
+Week 1
+
+We set up the group and discussed briefly the project topic. As a front-end developer in the group, I searched for other car space renting websites and got inspiration for the UI design.
+
+Week 2
+
+We had a meeting about the project start-up and the technologies we want to apply for the project. I looked up and learned something about React and JavaScript.
+
+Week 3
+
+We had several meetings to sort out the detail in the proposal and finished the proposal. I did the website interface prototyping and flow diagram.
+
+week 4
+
+Buwei and I both worked on the frontend design, we have done the user sign in and sign up page also with the user profile page, and have determined the UI style for the frontend.
+
+week 5
+
+Buwei and I both worked on the frontend design, we have done the car space listing page and car space detail page also with the user's own spot page, and have improved the UI style for the frontend.
+
+week 6
+
+Buwei and I both worked on the frontend design, we have done the add a new car space page and car space detail page for the own spot also with the user's wallet, and have improved the UI style for the frontend. We have done the create a booking page and booking detail page, also we add a new function for user to delete the car space they have already listed But the booking detail page needs to improve a bit like the restriction on the booking date.
+
+week 7
+
+Buwei and I both worked on the frontend design, we fixed all the bugs existing for now such as the update on the user wallet balance will be shown on the wallet page directly. And we also worked with the backend team to figure out the booking function.
+
+week 8
+
+Buwei and I both worked on the frontend design, firstly we fixed the bug shown on demo2, such as signup and Google map issues. we have done the function for user to leave a rating and comments for the past bookings, also we add a new function for user to leave a friend's email address when they sign up to get a free $5 when the new user finish the first order.
+
+week 9
+
+I worked together with all the team members to fix the existing bugs in the system and tried to improve the performance of the whole system.
+
+week 10
+
+I worked together with all the team members to finalize the final report and prepared for the final demo.

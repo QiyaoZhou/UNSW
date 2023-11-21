@@ -1,0 +1,22 @@
+# COMP9315 23T1 Final Exam Q7
+  
+Type your answer(s) to replace the xxx's
+Submit this file as your answer for Q7
+
+
+1.
+
+From choice vector,name is choosed twice,gender is choosed once,age is choosed twice and major is choosed once.
+query1:has gender,age and major when select, so 2^(1+2+1) = 16
+query2:has name and major, so 2^(2+1) = 8
+
+
+2.
+
+51<2^6<83<2^7,so we can get 7 and 8 choice vectors each timepoint.
+timepoint1:we can choose name 3 times
+query1:2^(1+2+1) = 16
+query2:2^(3+1) = 16
+timepoint1:we can choose name and age 3 times
+query1:2^(1+3+1) = 32
+query2:2^(3+1) = 16s

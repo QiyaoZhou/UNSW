@@ -1,0 +1,23 @@
+7/6/2023：
+project proposal
+
+week3:
+Complete the peject proposal, write the user story and upload it to jira synchronously, the technology used in the front-end design.
+
+week4:
+doing the front-end programing with Chengxuan. The initial page already exists, done most of the initial page jump, but it does not interact with the backend yet. Next week we will interact with the backend and start to plan some functions that need to be implemented by the front end.
+
+week 56:
+Finished querying parking spaces, pages for booking parking spaces, and related codes that communicate with the back-end database, but the function of booking parking spaces lacks some restrictions, such as the same parking space can be booked multiple times at the same time. It has also finished citing Google Maps to display the current location, and the parking spaces are displayed on the corresponding Google Maps, and realized keyword query parking spaces, sorted by price and sorted by distance. Completed the initial page of the wallet but still unable to communicate with the backend and database. The My booking page has not yet started. After all the functions of booking parking spaces are completed, we will start to write the My Booking page.
+
+week7:
+Fix all the bugs that appeared last week and some UI optimizations, such as wallet recharge can immediately display the recharged balance, and started to communicate with the backend and started writing pages about booked order
+
+week8:
+Fixed all the bugs that appeared in demo2, such as the bugs in displaying maps and orders in sign up, completed the function of inviting friends, now you can choose to enter the email address of the inviter in signup, and the first order of the invitee ends After that, the wallets of the inviter and the invitee will automatically increase by $5 (mainly implemented by the backend).
+
+week9:
+Implemented the function of deleting parking spaces, fixed bugs in manual testing, and realized the function of displaying orders.
+
+week10:
+fix all the bug and start writing report. Stop using google map.

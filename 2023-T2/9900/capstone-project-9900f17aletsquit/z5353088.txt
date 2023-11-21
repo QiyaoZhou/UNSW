@@ -1,0 +1,55 @@
+WEEK1：
+1. Set up the time
+2. Make the decision of the choice of project
+
+WEEK2:
+1. Meeting and Discussing about the specific division of work of the project
+2. Learing techniqual skills like JAVA springboot and make some other preparation for the project
+
+WEEK3:
+1. Finish the group project proposal, write the problem statement, existing systems, project objectives(PO) and novel function parts.
+2. Besides, the Jira Sprints and the screenshot of it should be done.
+
+WEEK4:
+1. Realize the construction and basic testing of back-end springboot framework.
+2. Realize some function and make the testing work of them
+    a.user register
+    b.user log in/out
+    c.sending and writing user functions
+    d.adding, modifying, deleting and querying parking car spaces
+
+Week5：
+1. Achieve functions to parking spaces as below:
+    1.adding
+    2.modifying
+    3.deleting
+    4.querying 
+
+Week6:
+1.Add some queries, which is specific to some certain function:
+    1.getting information of all parking spaces
+    2.use parking space providers' usrname to query car parking spaces
+    3.use parking space ID to query specific car parking space
+    4.querying parking spaces by address.
+
+Week7:
+1.Add a new table, comment, to the database .And this table is used to store the comments of each parking space after consumers use it. 
+2.Achieve function to get all comments of the parking space according to the parking space number
+
+Week8:
+Realize basic functions of ordertable:
+    1.adding orders 
+    2.modifying orders
+
+Week 9
+1.Realize basic functions of the order table: 
+    1.deleting orders
+    2.querying orders.
+2.Added a new function for returning consumers to inquire about the available date of the parking space that will be placed soon, and the back end will return all the reserved parking spaces of the parking space for consumers to choose.
+
+Week10:
+1.finish the report of the project
+2.prefare for the presentation:
+    1.script
+    2.ppt
+

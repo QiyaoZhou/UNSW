@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.unsw.back_end.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.unsw.back_end.pojo.Order">
+    <id column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="from_time" jdbcType="DATE" property="fromTime" />
+    <result column="to_time" jdbcType="DATE" property="toTime" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="provider_id" jdbcType="INTEGER" property="providerId" />
+    <result column="car_space_id" jdbcType="INTEGER" property="carSpaceId" />
+    <result column="sum" jdbcType="FLOAT" property="sum" />
+    <result column="cur_rank" jdbcType="FLOAT" property="curRank" />
+    <result column="history_comment" jdbcType="VARCHAR" property="historyComment" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    order_id, from_time, to_time, customer_id, provider_id, car_space_id, `sum`, cur_rank, 
+    history_comment
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from order
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="order_id" keyProperty="orderId" parameterType="com.unsw.back_end.pojo.Order" useGeneratedKeys="true">
+    insert into order (from_time, to_time, customer_id, 
+      provider_id, car_space_id, `sum`, 
+      cur_rank, history_comment)
+    values (#{fromTime,jdbcType=DATE}, #{toTime,jdbcType=DATE}, #{customerId,jdbcType=INTEGER}, 
+      #{providerId,jdbcType=INTEGER}, #{carSpaceId,jdbcType=INTEGER}, #{sum,jdbcType=FLOAT}, 
+      #{curRank,jdbcType=FLOAT}, #{historyComment,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="order_id" keyProperty="orderId" parameterType="com.unsw.back_end.pojo.Order" useGeneratedKeys="true">
+    insert into order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fromTime != null">
+        from_time,
+      </if>
+      <if test="toTime != null">
+        to_time,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="providerId != null">
+        provider_id,
+      </if>
+      <if test="carSpaceId != null">
+        car_space_id,
+      </if>
+      <if test="sum != null">
+        `sum`,
+      </if>
+      <if test="curRank != null">
+        cur_rank,
+      </if>
+      <if test="historyComment != null">
+        history_comment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fromTime != null">
+        #{fromTime,jdbcType=DATE},
+      </if>
+      <if test="toTime != null">
+        #{toTime,jdbcType=DATE},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="providerId != null">
+        #{providerId,jdbcType=INTEGER},
+      </if>
+      <if test="carSpaceId != null">
+        #{carSpaceId,jdbcType=INTEGER},
+      </if>
+      <if test="sum != null">
+        #{sum,jdbcType=FLOAT},
+      </if>
+      <if test="curRank != null">
+        #{curRank,jdbcType=FLOAT},
+      </if>
+      <if test="historyComment != null">
+        #{historyComment,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.unsw.back_end.pojo.Order">
+    update order
+    <set>
+      <if test="fromTime != null">
+        from_time = #{fromTime,jdbcType=DATE},
+      </if>
+      <if test="toTime != null">
+        to_time = #{toTime,jdbcType=DATE},
+      </if>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="providerId != null">
+        provider_id = #{providerId,jdbcType=INTEGER},
+      </if>
+      <if test="carSpaceId != null">
+        car_space_id = #{carSpaceId,jdbcType=INTEGER},
+      </if>
+      <if test="sum != null">
+        `sum` = #{sum,jdbcType=FLOAT},
+      </if>
+      <if test="curRank != null">
+        cur_rank = #{curRank,jdbcType=FLOAT},
+      </if>
+      <if test="historyComment != null">
+        history_comment = #{historyComment,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.unsw.back_end.pojo.Order">
+    update order
+    set from_time = #{fromTime,jdbcType=DATE},
+      to_time = #{toTime,jdbcType=DATE},
+      customer_id = #{customerId,jdbcType=INTEGER},
+      provider_id = #{providerId,jdbcType=INTEGER},
+      car_space_id = #{carSpaceId,jdbcType=INTEGER},
+      `sum` = #{sum,jdbcType=FLOAT},
+      cur_rank = #{curRank,jdbcType=FLOAT},
+      history_comment = #{historyComment,jdbcType=VARCHAR}
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+</mapper>

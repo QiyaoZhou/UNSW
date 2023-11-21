@@ -1,0 +1,28 @@
+ count 
+-------
+ 10153
+(1 row)
+
+ sid |    name    |  opendate  |           coord           
+-----+------------+------------+---------------------------
+  12 | Store_xedn | 2017-02-01 | sale,34.0500°N,6.8167°W
+(1 row)
+
+ sid |    name    |  opendate  |            coord             
+-----+------------+------------+------------------------------
+ 693 | Store_f92s | 1986-11-01 | hrodna,53.6667°N,23.8167°E
+(1 row)
+
+ sid  |    name    |  opendate  |               coord                
+------+------------+------------+------------------------------------
+  290 | Store_oz0d | 1976-09-21 | new haven,41.3112°N,72.9246°W
+  597 | Store_oz0d | 1995-02-28 | sandakan,5.8388°N,118.1173°E
+  691 | Store_oz0d | 2011-08-17 | wudalianchi,48.6433°N,126.1408°E
+ 6365 | Store_oz0d | 1998-12-08 | plainedge,40.7240°N,73.4770°W
+ 6458 | Store_oz0d | 1989-01-19 | riverside,40.0358°N,74.9564°W
+ 6550 | Store_oz0d | 1992-08-28 | folcroft,39.8891°N,75.2770°W
+ 7947 | Store_oz0d | 2019-05-16 | delmenhorst,53.0506°N,8.6317°E
+(7 rows)
+
+psql:/REMOVED_PATH/queries2.sql:21: ERROR:  missing support function 1(17134,17134) in opfamily 17155
+

@@ -1,0 +1,16 @@
+# COMP9315 23T1 Final Exam Q6
+
+Type your answer(s) to replace the xxx's
+Submit this file as your answer for Q6
+
+1.
+query1: start from root,31<47, so turn to left leaf, then turn right to get page with id = 31
+
+query2: start from root,54>47, so turn to right leaf, then turn left to get page with 54<id<59 and also get other pages under the leaf index
+
+2.
+
+SQL1: find leaf node and position in node where ney key belongs(31<34<39), the node is not full, so insert 34 between 31 and 39. 
+
+SQL2: find leaf node and position in node where ney key belongs(41>39), the node is full, so promote middle element(34) to parent,split node ito two half-full
+node(31,34;34,39),insert 41 on the right of 39. At that time, parent full,so splitand promote upwords. 

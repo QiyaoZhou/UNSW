@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Assignment 2</title>
+</head>
+<body>
+    <form name="inputform">
+        <div class="hint-textbox">
+            <div class="hint-text">Street Name</div>
+        </div>
+        <div class="input-textbox">
+            <input class="input-text1" type="text" name="street" />
+        </div>
+
+        <div class="hint-textbox">
+            <div class="hint-text">Suburb</div>
+        </div>
+        <div class="input-textbox">
+            <input class="input-text1" type="text" name="suburb" />
+        </div>
+
+        <div class="hint-textbox">
+            <div class="hint-text">Postcode</div>
+        </div>
+        <div class="input-textbox">
+            <input class="input-text1" type="text" name="postcode" />
+        </div>
+
+        <div class="hint-textbox">
+            <div class="hint-text">Date of birth</div>
+        </div>
+        <div class="input-textbox">
+            <input class="input-text1" type="text" name="birthday" />
+        </div>
+
+        <div class="hint-textbox">
+            <div class="hint-text">Building Type</div>
+        </div>
+        <div class="input-textbox">
+            <select class="input-text2" name="type">
+                <option value="Apartment">Apartment</option>
+                <option value="House">House</option>
+            </select>
+        </div>
+
+        <div class="hint-textbox">
+            <div class="feature-hint">Features</div>
+        </div>
+        <div class="input-textbox">
+            <div class="features">
+                <input type="checkbox" id="heating" name="check" value="Heating">
+                <label for="heating">Heating</label>
+                <br />
+                <input type="checkbox" id="airconditioning" name="check" value="AirConditioning">
+                <label for="airconditioning">AirConditioning</label>
+                <br />
+                <input type="checkbox" id="pool" name="check" value="Pool">
+                <label for="pool">Pool</label>
+                <br />
+                <input type="checkbox" id="sandpit" name="check" value="Sandpit">
+                <label for="sandpit">Sandpit</label>
+                <br />
+                <input type="button" id="select-button"  value="Select All" />
+            </div>
+        </div>
+    </form>
+
+    <br />
+    <input id="reset" type="reset" value="Reset" />
+
+    <br /><br />
+    <textarea  readonly id="output" class="summary"></textarea>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

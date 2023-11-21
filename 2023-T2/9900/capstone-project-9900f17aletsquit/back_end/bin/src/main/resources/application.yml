@@ -1,0 +1,31 @@
+
+server:
+  port: 8800
+
+
+
+spring:
+  datasource:
+    name: druid
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/car_space_renting_database?serverTimezone=UTC&characterEncoding=UTF-8
+    username: letsquit
+    password: 5355526
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    jedis:
+      pool:
+        max-active: 50
+        max-wait: 3000
+        max-idle: 20
+        min-idle: 2
+    timeout: 5000
+
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.unsw.back_end
+

@@ -1,0 +1,21 @@
+# COMP9315 23T1 Final Exam Q8
+  
+Type your answer(s) to replace the xxx's
+Submit this file as your answer for Q8
+
+
+1.
+
+DBMS crashes after t(9),and T1,T2,T3 commit before it , so redo these 3 transactions
+redo T1: set A = 5 on the disk
+redo T2: set C = 3 on the disk, set B = 4 on the disk 
+redo T3: set B = 8 on the disk 
+
+2.
+
+DBMS crashes after t(9),and T1,T2 commit before it , so redo T1 and T2, undo T3
+redo T1: set A = 5 on the disk
+redo T2: set C = 3 on the disk, set B = 4 on the disk 
+undo T3: <T3 B 8 4>   
+         <ABORT T3>
+

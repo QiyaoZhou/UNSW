@@ -1,0 +1,16 @@
+ssh nw-syd-vxdb.cse.unsw.edu.au
+
+cp ~/Desktop/ZQY/9315/gcoord.c  /localstorage/z5379852/testing/gcoord.c
+
+cp ~/Desktop/ZQY/9315/gcoord.source  /localstorage/z5379852/testing/gcoord.source
+
+cd /localstorage/z5379852/testing
+
+source /localstorage/z5379852/env
+p1
+mkdir /localstorage/z5379852/testing
+cp -P /web/cs9315/23T1/assignment/1/testing/run_test.py /localstorage/z5379852/testing/run_test.py
+cp -P /web/cs9315/23T1/assignment/1/testing/Makefile /localstorage/z5379852/testing/Makefile
+cd /localstorage/z5379852/testing
+tar -xf /web/cs9315/23T1/assignment/1/testing/testing.tar
+./run_test.py

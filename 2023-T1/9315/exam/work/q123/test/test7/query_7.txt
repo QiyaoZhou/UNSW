@@ -1,0 +1,6 @@
+# comments
+
+
+# format:
+# ins nattrs attr_0 attr_1 ... table_name
+ins 4 10 9 8 7 t1_name 

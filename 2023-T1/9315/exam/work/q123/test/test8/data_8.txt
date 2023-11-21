@@ -1,0 +1,8 @@
+# comments...
+
+# database_meta number_of_tables
+database_meta 1
+# table_meta table_oid table_name number_of_attributes
+table_meta 1 t1_name 1
+# attributes separated by space
+1

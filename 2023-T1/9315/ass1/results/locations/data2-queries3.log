@@ -1,0 +1,3 @@
+psql:/REMOVED_PATH/queries3.sql:3: ERROR:  missing support function 1(16825,16825) in opfamily 16846
+psql:/REMOVED_PATH/queries3.sql:8: ERROR:  missing support function 1(16825,16825) in opfamily 16846
+

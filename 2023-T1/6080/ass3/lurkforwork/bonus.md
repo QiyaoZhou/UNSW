@@ -1,0 +1,3 @@
+- Toggle view password icons
+- Check to see if a user is sure they want to delete a job post
+- Profile card on feed page scrolls with screen

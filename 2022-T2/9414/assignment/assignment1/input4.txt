@@ -1,0 +1,21 @@
+# activity spa and barbecue has soft cons which can be violated
+activity hiking 3
+activity spa 2
+activity reading 2
+activity barbecue 3
+# binary cons
+constraint hiking same-day spa
+constraint reading same-day barbecue
+constraint hiking before spa
+constraint barbecue after reading
+# unary cons
+domain spa on sat
+domain barbecue on fri
+domain hiking starts-before 9am
+domain hiking starts-after 9am
+domain reading starts-before 10am
+domain barbecue ends-before 7pm
+domain spa ends-before 5pm
+#soft cons
+domain spa around 3pm 5
+domain barbecue around 5pm 5

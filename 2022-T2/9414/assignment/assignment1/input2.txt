@@ -1,0 +1,22 @@
+# activity define
+activity dinner 2
+activity swimming 1
+activity shopping 3
+activity gaming 4
+# binary cons
+constraint dinner before swimming
+constraint dinner same-day swimming
+constraint shopping same-day gaming
+constraint shopping after gaming
+# unary cons
+domain dinner on sat
+domain gaming on sun
+domain swimming starts-after 2pm
+domain swimming ends-before 7pm
+domain shopping starts-before 3pm
+domain shopping ends-before 3pm
+domain gaming starts-before 5pm
+# soft/preferences
+domain dinner around 5pm 5
+domain swimming around 4pm 10
+domain gaming around 9am 5

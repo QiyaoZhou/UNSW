@@ -1,0 +1,6 @@
+shower:fri 4pm
+breakfast:wed 8am
+math:wed 9am
+football:fri 4pm
+lab:wed 2pm
+cost:5

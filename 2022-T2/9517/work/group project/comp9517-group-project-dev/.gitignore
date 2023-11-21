@@ -1,0 +1,6 @@
+.idea/
+.DS_Store
+/datasets/
+/yolov5m/
+/dev0720/
+__pycache__

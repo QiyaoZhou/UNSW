@@ -1,0 +1,9 @@
+# two activities equal
+activity lecture 3
+activity tutorial 3
+# two binary constraints
+constraint lecture equals tutorial
+# domain constraints
+domain lecture on mon
+domain lecture starts-before 9am
+domain tutorial around 3pm 10

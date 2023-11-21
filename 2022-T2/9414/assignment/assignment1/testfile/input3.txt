@@ -1,0 +1,10 @@
+# one activity during another activity
+activity lecture 1
+activity tutorial 3
+# two binary constraints
+constraint lecture during tutorial
+# domain constraints
+domain lecture after fri
+domain lecture starts-before 1pm
+domain lecture starts-after 1pm
+domain tutorial around 3pm 10

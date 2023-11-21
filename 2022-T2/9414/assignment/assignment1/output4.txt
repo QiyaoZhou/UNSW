@@ -1,0 +1,5 @@
+hiking:sat 9am
+spa:sat 3pm
+reading:fri 8am
+barbecue:fri 4pm
+cost:5

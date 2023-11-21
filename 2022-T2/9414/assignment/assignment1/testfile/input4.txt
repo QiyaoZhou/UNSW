@@ -1,0 +1,15 @@
+# three activities on the same day where time preference cannot be met
+activity lecture 3
+activity tutorial 1
+activity lab 2
+# two binary constraints
+constraint lecture before tutorial
+constraint lecture before lab
+constraint lecture same-day tutorial
+constraint lecture same-day lab
+# domain constraints
+domain lecture on mon
+domain lecture ends-before 1pm
+domain lecture ends-after 1pm
+domain tutorial around 3pm 10
+domain lab around 1pm 10

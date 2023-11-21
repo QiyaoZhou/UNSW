@@ -1,0 +1,4 @@
+lecture:mon 10am
+tutorial:mon 3pm
+lab:mon 1pm
+cost:0

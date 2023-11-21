@@ -1,0 +1,5 @@
+dinner:sat 2pm
+swimming:sat 4pm
+shopping:sun 9am
+gaming:sun 9am
+cost:15

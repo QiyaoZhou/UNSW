@@ -1,0 +1,26 @@
+# act define
+activity shower 1
+activity breakfast 1
+activity math 2
+activity football 2
+activity lab 4
+# binary cons
+constraint breakfast before math
+constraint math before lab
+constraint breakfast same-day math
+constraint math same-day lab
+constraint football same-day shower
+constraint shower after football
+# unary cons
+domain shower starts-before 4pm
+domain shower starts-after 4pm
+domain breakfast starts-after 7am
+domain breakfast starts-before 9am
+domain math starts-before 10am
+domain math ends-before 11am
+domain lab on wed
+domain football on fri
+# soft cons
+domain breakfast around 9am 5
+domain football around 4pm 5
+domain lab around 2pm 10
